@@ -90,7 +90,6 @@ app.get('/products/:', (req, res) =>{
 	res.send("Anneyeong")
 });
 
-//New User
 app.post('/users', (req, res) => {
 	const newUser = {
 		email: req.body.email,
@@ -206,18 +205,6 @@ app.post('/create/orders', (req, res) => {
 });
 
 app.get('/users/orders', (req, res) => {
-
-	if (loggedUser = true){
-		res.send(order)
-	} else{
-		res.send("Unauthorized. Only Admin is permitted to view orders")
-	}
-
-})
-
-
-//=======================================================================================
-app.get('/users/orders', (req, res) => {
   console.log(loggedUser);
   if (loggedUser.isAdmin === true) {
     res.send(order);
@@ -245,7 +232,6 @@ app.get('/orders/:userId', (req, res) => {
     res.status(404).send('Order not found.');
   }
 });
-
 
 app.put('/orders/:orderId', (req, res) => {
   console.log(req.params);
@@ -282,8 +268,6 @@ app.get('/new/orders/:userId', (req, res) => {
     res.status(401).send('Only non-admin users can view their orders.');
   }
 });
-
- //==========================================================================
 
 // login
 app.post('/users/login', (req, res) => {
